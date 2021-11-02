@@ -141,37 +141,21 @@ if($level != 'admin'){
               </a>
               <ul class="treeview-menu">
                 <li><a href="admin.php?p=tambah-data"><i class="fa fa-circle-o"></i> Tambah Data</a></li>
-                <li><a href="admin.php?p=list-data"><i class="fa fa-circle-o"></i> List Data</a></li>
+                <li><a href="admin.php?p=list-nasabah"><i class="fa fa-circle-o"></i> List Data</a></li> 
               </ul>
-            </li>
-
-             <li class="treeview">
-              <a href="#">
-                <i class="fa fa-files-o"></i>
-                <span>Pekerjaan</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="admin.php?p=tambah-pekerjaan"><i class="fa fa-circle-o"></i>Pekerjaan</a></li>
-              </ul>
+            </li>           
 
               <li class="treeview">
               <a href="#">
                 <i class="fa fa-files-o"></i>
-                <span>Penghasilan</span>
+                <span>Proposal</span>
                 <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="admin.php?p=tambah-penghasilan"><i class="fa fa-circle-o"></i>Penghasilan</a></li>
-              </ul>
+                </a>
+                <ul class="treeview-menu">
+                <li><a href="admin.php?p=list-proposal"><i class="fa fa-circle-o"></i> List Data</a></li> 
+                </ul>
+              </li>
             
-
-              <li class="treeview">
-              <a href="#">
-                <i class="fa fa-files-o"></i>
-                <span>Approve</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
              
         </section>
         <!-- /.sidebar -->

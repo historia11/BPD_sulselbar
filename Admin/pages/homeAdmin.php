@@ -7,7 +7,6 @@ Tanggal 08-02-2018 -->
         <section class="content-header">
           <h1>
             Home
-           
           </h1>
           <ol class="breadcrumb">
             <li class="active">Home</li>
