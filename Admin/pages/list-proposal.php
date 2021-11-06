@@ -53,9 +53,8 @@ Tanggal 08-02-2018 -->
                      ?>
                       <tr>
                         <td><?php echo $no; ?></td>
-                        <td><?php echo $q['nik']; ?></td>
                         <td><?php echo $q['nama']; ?></td>
-                        <td><?php echo $q['ttl']; ?></td>
+                        <td><?php echo $q['nik']; ?></td>
                         <td><?php echo $q['agama']; ?></td>
                         <td><?php echo $q['no_hp']; ?></td>
                         <td><?php echo $q['no_hp_darurat']; ?></td>

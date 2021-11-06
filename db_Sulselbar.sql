@@ -97,17 +97,17 @@ CREATE TABLE `proposal` (
 CREATE TABLE `nasabah` (
   `nik` varchar(20) NOT NULL,
   `nama` varchar(35) NOT NULL,
-  `tempat lahir` varchar(20) NOT NULL,
-  `tanggal lahir` date NOT NULL,
+  `tempat_lahir` varchar(20) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
   `agama` varchar(10) NOT NULL,
   `alamat_domisili` text NOT NULL,
   `no_hp` varchar(13) NOT NULL,
   `no_hp_darurat` varchar(13) NOT NULL,
   `jml_tanggungan` int NOT NULL,
-  `ft_ktp` blob NOT NULL,
-  `ft_s_ktp` blob  NOT NULL,
-  `ft_izin_usaha` blob  NOT NULL,
-  `ft_pp` blob  NOT NULL
+  `ft_ktp` mediumblob NOT NULL,
+  `ft_s_ktp` mediumblob  NOT NULL,
+  `ft_izin_usaha` mediumblob  NOT NULL,
+  `ft_pp` mediumblob  NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -117,6 +117,7 @@ CREATE TABLE `nasabah` (
 
 CREATE TABLE `pekerjaan` (
   `id_pekerjaan` varchar(15) NOT NULL,
+  `nik` varchar(20) NOT NULL,
   `nm_usaha` varchar(35) NOT NULL,
   `alamat`  text NOT NULL,
   `jenis_usaha` varchar(15) NOT NULL,
@@ -124,8 +125,8 @@ CREATE TABLE `pekerjaan` (
   `nominal` int NOT NULL,
   `tenor` int NOT NULL,
   `angsuran` int NOT NULL,
-  `ft_tmpt_usaha` blob NOT NULL,
-  `ft_s_tmpt_usaha` blob NOT NULL
+  `ft_tmpt_usaha` mediumblob NOT NULL,
+  `ft_s_tmpt_usaha` mediumblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -138,6 +139,7 @@ CREATE TABLE `pekerjaan` (
 
 CREATE TABLE `penghasilan` (
   `id_penghasilan` varchar(15) NOT NULL,
+  `nik` varchar(20) NOT NULL,
   `pendapatan_pokok` int NOT NULL,
   `tunjangan` int NOT NULL,
   `penghasilan` int NOT NULL,
@@ -164,13 +166,15 @@ ALTER TABLE `nasabah`
 -- Indexes for table `pekerjaan`
 --
 ALTER TABLE `pekerjaan`
-  ADD PRIMARY KEY (`id_pekerjaan`);
+  ADD PRIMARY KEY (`id_pekerjaan`),
+  ADD FOREIGN KEY (`nik`) REFERENCES `nasabah`(`nik`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Indexes for table `penghasilan`
 --
 ALTER TABLE `penghasilan`
-  ADD PRIMARY KEY (`id_penghasilan`);
+  ADD PRIMARY KEY (`id_penghasilan`),
+  ADD FOREIGN KEY (`nik`) REFERENCES `nasabah`(`nik`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Indexes for table `direksi`

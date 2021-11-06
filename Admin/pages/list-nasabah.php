@@ -1,6 +1,14 @@
 <!-- DIbuat oleh Nopen rianto
 Tanggal 08-02-2018 -->
 
+
+    <?php
+    include '../koneksi/koneksi.php';
+    if(isset($_POST['hapus']))
+    {
+      mysqli_query($koneksi,"DELETE FROM nasabah WHERE nik='$_POST[nik]'");
+    }
+    ?>
     <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -26,8 +34,8 @@ Tanggal 08-02-2018 -->
                   <h3 class="box-title"></h3>  
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                   <div class="table-responsive">    
-                  <table id="example1" class="table table-bordered table-striped">
+                   <div class="table-responsive">     
+                  <table id="example1" class="table table-bordered table-striped text-nowrap">
                       
                     <thead>
                       <tr>
@@ -36,39 +44,31 @@ Tanggal 08-02-2018 -->
                         <th>NIK</th>
                         <th>NO.HP</th>
                         <th>FOTO KTP</th>
-                        <th width="10%">KETERANGAN</th>
                         <th width="10%">AKSI</th>
                          
                       </tr>
                     </thead>
                     <tbody>
                        <?php
-                       include './../koneksi/koneksi.php'; 
                       $no=0;
                     $sql=mysqli_query($koneksi,"SELECT * FROM nasabah");
                       while($q=mysqli_fetch_array($sql)){
                         $no++;
-
+                        
                      ?>
                       <tr>
                         <td><?php echo $no; ?></td>
                         <td><?php echo $q['nik']; ?></td>
                         <td><?php echo $q['nama']; ?></td>
                         <td><?php echo $q['no_hp']; ?></td>
-                        <td><?php echo $q['tenor']; ?></td>
-                        <td><?php echo $q['ft_ktp']; ?></td>
-                        <td><form method="POST" action="">
-                        <a class="btn btn-info"
-                        href="">Detail</a>
-
-                        <a class="btn btn-success"
-                        href="">Edit</a>
-
-                        <button class="btn btn-danger" onclick="return confirm('Yakin untuk menghapus data?')">Delete</button>
-                        </form></td>
-                      
-                          <a href="admin.php?p=edit-data&nik=<?php echo $q['nik']; ?>" class="btn btn-success"><i class="fa fa-pencil"></i></a>
-                          <a href="./pages/delete-data.php?nik=<?php echo $q['nik']; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                        <td><?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $q['ft_ktp'] ).'" width="200px"/>'; ?></td>
+                        <td>
+                          <form action=""  method="post" >
+                            <input type="hidden" name="nik" value="<?=$q['nik']?>">
+                            <!-- <a class="btn btn-info" href="">Detail</a>
+                            <a class="btn btn-success" href="">Edit</a> -->
+                            <button class="btn btn-danger" name="hapus" onclick="return confirm('Yakin untuk menghapus data?')">Delete</button>
+                          </form>
                         </td>
                       </tr>
 

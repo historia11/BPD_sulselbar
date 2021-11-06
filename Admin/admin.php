@@ -140,8 +140,8 @@ if($level != 'admin'){
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="admin.php?p=tambah-data"><i class="fa fa-circle-o"></i> Tambah Data</a></li>
-                <li><a href="admin.php?p=list-nasabah"><i class="fa fa-circle-o"></i> List Data</a></li> 
+                <li><a href="admin.php?p=tambah-nasabah"><i class="fa fa-circle-o"></i> Tambah Nasabah</a></li>
+                <li><a href="admin.php?p=list-nasabah"><i class="fa fa-circle-o"></i> List Nasabah</a></li> 
               </ul>
             </li>           
 
@@ -152,7 +152,7 @@ if($level != 'admin'){
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                <li><a href="admin.php?p=list-proposal"><i class="fa fa-circle-o"></i> List Data</a></li> 
+                <li><a href="admin.php?p=list-proposal"><i class="fa fa-circle-o"></i> List Proposal</a></li> 
                 </ul>
               </li>
             
@@ -179,7 +179,7 @@ if($level != 'admin'){
     ?>
 
       <footer class="main-footer">
-        <div class="pull-right hidden-xs">
+        <div class="pull-right hidden-md">
           <b></b> 
         </div>
         <strong>BPD sulselbar &copy; <?php echo date('Y'); ?></strong>
